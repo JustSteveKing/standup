@@ -25,6 +25,16 @@ final class UserResource extends JsonResource
                     relationship: 'roles',
                 ),
             ),
+            'workspace' => new WorkspaceResource(
+                resource: $this->whenLoaded(
+                    relationship: 'workspace',
+                ),
+            ),
+            'workspaces' => WorkspaceResource::collection(
+                resource: $this->whenLoaded(
+                    'workspaces',
+                ),
+            ),
             'created' => new DateResource(
                 resource: $this->resource->created_at,
             ),

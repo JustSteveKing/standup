@@ -21,7 +21,11 @@ final readonly class UserController
     {
         return new UserResource(
             resource: User::query()->with(
-                relations: ['roles.permissions'],
+                relations: [
+                    'roles.permissions',
+                    'workspaces',
+                    'workspace',
+                ],
             )->where(
                 column: 'id',
                 operator: '=',

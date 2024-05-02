@@ -17,6 +17,10 @@ return new class () extends Migration {
             $table->string('password');
             $table->rememberToken();
 
+            $table
+                ->foreignUuid('current_workspace_id')
+                ->nullable();
+
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
             $table->softDeletes();

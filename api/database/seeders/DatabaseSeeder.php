@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Workspace;
 use Illuminate\Database\Seeder;
 
 final class DatabaseSeeder extends Seeder
@@ -48,5 +49,11 @@ final class DatabaseSeeder extends Seeder
         $member->permissions()->save($listUser);
 
         $user->roles()->save($admin);
+
+        Workspace::factory()->for($user, 'owner')->create([
+            'name' => 'Treblle',
+            'color' => 'blue',
+            'logo' => 'https://assets-global.website-files.com/6446b3c46dac08ff137e3b2b/6446b540298cc35d604bebc1_WHITE-TRANSPARENT%20Copy.svg',
+        ]);
     }
 }

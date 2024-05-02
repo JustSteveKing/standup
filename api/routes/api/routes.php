@@ -8,10 +8,12 @@ Route::as('api:')->group(static function (): void {
     Route::middleware(['auth:sanctum'])->group(static function (): void {
         Route::get('user', App\Http\Controllers\Api\Auth\UserController::class)->name('user');
 
-        Route::prefix('users')->as('users:')->group(static function (): void {
-            Route::get('/', App\Http\Controllers\Api\Users\IndexController::class)->name('index')->middleware([
-                'permission:users.list',
-            ]);
-        });
+        Route::prefix('users')->as('users:')->group(base_path(
+            path: 'routes/api/users.php',
+        ));
+
+        Route::prefix('workspaces')->as('workspaces:')->group(base_path(
+            path: 'routes/api/workspaces.php',
+        ));
     });
 });
