@@ -25,6 +25,7 @@ use Laravel\Sanctum\PersonalAccessToken;
  * @property string $email
  * @property string $password
  * @property null|string $remember_token
+ * @property null|string $avatar
  * @property null|string $current_workspace_id
  * @property null|CarbonInterface $email_verified_at
  * @property null|CarbonInterface $created_at
@@ -52,6 +53,7 @@ final class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'remember_token',
+        'avatar',
         'current_workspace_id',
         'email_verified_at',
     ];
